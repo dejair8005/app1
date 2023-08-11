@@ -6,6 +6,7 @@ export default StyleSheet.create({
         backgroundColor:'#fff',
         alignItems:'center',
         justifyContent: 'center',
+        marginTop:0
     },
     textoCursos:{
         color:'#00f',

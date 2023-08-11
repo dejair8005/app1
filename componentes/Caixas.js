@@ -8,12 +8,22 @@ export default function MyComponent(props) {
     justifyContent:'center',alignItems:'stretch',
     //flexWrap:'wrap'
     }}>
-      <View style={{ flexGrow:1, backgroundColor: '#00f' }}></View>
-      <View style={{ flexGrow:2, backgroundColor: '#00a' }}></View>
-      <View style={{ flexGrow:3, backgroundColor: '#005' }}></View>
-      <View style={{ flexGrow:1, backgroundColor: '#f00' }}></View>
-      <View style={{ flexGrow:1, backgroundColor: '#a00' }}></View>
-      <View style={{ flexGrow:1, backgroundColor: '#500' }}></View>
+      {
+          props.exibir?
+            <View style={{flex:1}}>
+              <View style={{ flexGrow:1, backgroundColor: '#00f' }}></View>
+              <View style={{ flexGrow:2, backgroundColor: '#00a' }}></View>
+              <View style={{ flexGrow:3, backgroundColor: '#005' }}></View>
+              
+            </View>
+          :
+            <View style={{flex:1}}>
+              <View style={{ flexGrow:1, backgroundColor: '#f00' }}></View>
+              <View style={{ flexGrow:1, backgroundColor: '#a00' }}></View>
+              <View style={{ flexGrow:1, backgroundColor: '#500' }}></View>
+            </View>
+
+      }
     </View>
   );
 }
