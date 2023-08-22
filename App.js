@@ -1,33 +1,49 @@
 
-import React, { Component } from 'react';
-import {Text,View,StyleSheet, ImageBackground} from 'react-native';
+import React, {useState} from 'react';
+import {Text,View,StyleSheet,Button} from 'react-native';
+import Estilos from './estilos/Estilos.js'
+import CarroC from './componentes/CarroC.js'
+import CarroF from './componentes/CarroF.js'
 
-import Lp from './componentes/FlatList'
-import Estilos from './estilos/Estilos'
 
-const imgbg1='./assets/imagens/bg1.jpg'
-const imgbg2='./assets/imagens/bg2.jpg' 
-const imgbg3='./assets/imagens/bg3.jpg' 
 
 
 
 export default function App() {
+
+  const [ligado,setLigado] = useState(false)
+
   return (
     <View style={Estilos.conteiner}>
-        <ImageBackground
-          source={require(imgbg1)}
-          style={estilos.imagemFundo}
-        >  
-        <View>     
-          <Text style={Estilos.textoPadrao}>youtube.com/cfbcursos</Text>
-          <Text style={Estilos.textoTitulo}>www.cfbcursos.com.br</Text>
-          {/*<Lp/>*/}
-
-        </View>
-        </ImageBackground>
+      <Text>CFB Cursos</Text>
+      <Text>Curso de React Native</Text> 
+      <CarroC nome="Golf"/>
+      <CarroC nome="HRV"/>
+      <CarroF nome="Polo"/>
+      <CarroF nome="Fit"/>   
     </View>
   );
 }
+
+
+
+
+const estilos = StyleSheet.create({
+  logo: {
+    width: 300,
+    resizeMode:'contain'
+
+  },
+  imagemFundo:{
+    flex: 1,
+    resizeMode: 'cover',
+    width: '100%',
+    
+
+  }
+})
+
+
 
 
 
@@ -51,25 +67,6 @@ export default class App1 extends Component{
 
 }
 */
-
-const estilos = StyleSheet.create({
-  logo: {
-    width: 300,
-    resizeMode:'contain'
-
-  },
-  imagemFundo:{
-    flex: 1,
-    resizeMode: 'cover',
-    width: '100%',
-    
-
-  }
-})
-
-
-
-
 
 
 
