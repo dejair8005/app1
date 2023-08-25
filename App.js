@@ -1,27 +1,25 @@
 
 import React, {useState} from 'react';
-import {Text,View,StyleSheet,Button} from 'react-native';
+import {Text,View,StyleSheet,SafeAreaView} from 'react-native';
 import Estilos from './estilos/Estilos.js'
 import CarroC from './componentes/CarroC.js'
 import CarroF from './componentes/CarroF.js'
+import CxTx from  './componentes/CaixaDeTexto.js'
 
 
 
 
-
-export default function App() {
+export default function App() { 
 
   const [ligado,setLigado] = useState(false)
 
   return (
-    <View style={Estilos.conteiner}>
+    <SafeAreaView style={Estilos.conteiner}>
       <Text>CFB Cursos</Text>
-      <Text>Curso de React Native</Text> 
-      <CarroC nome="Golf"/>
-      <CarroC nome="HRV"/>
-      <CarroF nome="Polo"/>
-      <CarroF nome="Fit"/>   
-    </View>
+      <Text>Curso de React Native</Text>
+      <CxTx/> 
+        
+    </SafeAreaView>
   );
 }
 
