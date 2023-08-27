@@ -1,23 +1,40 @@
 
 import React, {useState} from 'react';
-import {Text,View,StyleSheet,SafeAreaView} from 'react-native';
+import {Text,View,StyleSheet,SafeAreaView,StatusBar,Button} from 'react-native';
 import Estilos from './estilos/Estilos.js'
-import CarroC from './componentes/CarroC.js'
-import CarroF from './componentes/CarroF.js'
-import CxTx from  './componentes/CaixaDeTexto.js'
+
 
 
 
 
 export default function App() { 
 
-  const [ligado,setLigado] = useState(false)
+  const [cor,setCor] = useState("black")
+  const changeCor=(c)=>{setCor(c)}
 
   return (
     <SafeAreaView style={Estilos.conteiner}>
+      <StatusBar 
+        backgroundColor={cor} 
+        barStyle='default'
+        hidden={false}
+        animated={true}
+        translucent={true}
+      />
       <Text>CFB Cursos</Text>
       <Text>Curso de React Native</Text>
-      <CxTx/> 
+      <Button
+        title='Vermelho'
+        onPress={()=>changeCor("red")}
+      />
+      <Button
+        title='Azul'
+        onPress={()=>changeCor("blue")}
+      />
+      <Button
+        title='Verde'
+        onPress={()=>changeCor("green")}
+      />
         
     </SafeAreaView>
   );
