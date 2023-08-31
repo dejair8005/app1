@@ -1,42 +1,95 @@
 
-import React, {useState} from 'react';
-import {Text,View,StyleSheet,SafeAreaView,StatusBar,Button} from 'react-native';
-import Estilos from './estilos/Estilos.js'
+import React from 'react';
+import {Text,View,StyleSheet,Button, Alert} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+//import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { create } from 'react-test-renderer';
+
+
+const Guias = createBottomTabNavigator();
+
+function TelaHome({navigation}){
+  return(
+    <View style={{flex: 1, alignItems:'center', justifyContent:'center'}}>
+        <Text>Tela Home</Text>
+        <Text>CFB Cursos</Text>
+        
+    </View>
+  )
+}
+
+function TelaCanal({navigation}){
+  return(
+    <View style={{flex: 1, alignItems:'center', justifyContent:'center'}}>
+        <Text>Tela Canal</Text>
+        <Text>youtube.com/cfbcursos</Text>
+        
+       
+    </View>
+  )
+}
+
+function TelaCursos({navigation}){
+  return(
+    <View style={{flex: 1, alignItems:'center', justifyContent:'center'}}>
+        <Text>Tela Cursos</Text>
+        <Text>CFB Cursos</Text>
+       
+        
+    </View>
+  )
+}
+
 
 
 
 
 
 export default function App() { 
-
-  const [cor,setCor] = useState("black")
-  const changeCor=(c)=>{setCor(c)}
-
   return (
-    <SafeAreaView style={Estilos.conteiner}>
-      <StatusBar 
-        backgroundColor={cor} 
-        barStyle='default'
-        hidden={false}
-        animated={true}
-        translucent={true}
-      />
-      <Text>CFB Cursos</Text>
-      <Text>Curso de React Native</Text>
-      <Button
-        title='Vermelho'
-        onPress={()=>changeCor("red")}
-      />
-      <Button
-        title='Azul'
-        onPress={()=>changeCor("blue")}
-      />
-      <Button
-        title='Verde'
-        onPress={()=>changeCor("green")}
-      />
+    
+    <NavigationContainer>
+        <Guias.Navigator initialRouteName='TelaCanal'>
+          <Guias.Screen
+            name="Home"
+            component={TelaHome}
+            options={{
+              title: "Tela Inicial",
+              headerStyle:{
+                backgroundColor: '#008'
+              },
+              headerTintColor:'#fff',
+              headerRight:()=>(
+                  <Button
+                    title="Cursos"
+                    color="#000"
+                    onPress={()=>alert('Voce Clicou no Botao')}
+                  />
+              ),
+            }}
+          />
+          <Guias.Screen
+            name="Canal"
+            component={TelaCanal}
+            options={{title: "Tela Canal",
+            headerStyle:{
+              backgroundColor: '#008'
+            },
+            headerTintColor:'#fff',
+            headerTitleStyle:{
+              fontWeight:'bold'
+            }}}
+          />
+          <Guias.Screen
+            name="Cursos"
+            component={TelaCursos}
+            options={{title: "Cursos do Canal"}}
+          />
         
-    </SafeAreaView>
+        </Guias.Navigator>
+    </NavigationContainer>
+    
   );
 }
 
@@ -44,18 +97,7 @@ export default function App() {
 
 
 const estilos = StyleSheet.create({
-  logo: {
-    width: 300,
-    resizeMode:'contain'
-
-  },
-  imagemFundo:{
-    flex: 1,
-    resizeMode: 'cover',
-    width: '100%',
-    
-
-  }
+ 
 })
 
 
